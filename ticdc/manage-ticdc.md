@@ -24,19 +24,19 @@ aliases: ['/docs-cn/dev/ticdc/manage-ticdc/','/docs-cn/dev/reference/tools/ticdc
 
 更多信息参见 [TiDB 软件和硬件环境建议配置](/hardware-and-software-requirements.md)
 
-### 使用 TiUP 部署安装 TiCDC
+### 使用 TiUP 部署包含 TiCDC 组件的全新 TiDB 集群
 
-#### 使用 TiUP 部署包含 TiCDC 组件的 TiDB 集群
+在使用 TiUP 部署全新 TiDB 集群时，支持同时部署 TiCDC 组件，只需在 TiUP 启动 TiDB 集群时的配置文件中加入 `TiCDC` 部分即可，[详细操作参考](/production-deployment-using-tiup.md#第-3-步编辑初始化配置文件)。
 
-详细操作参考[使用 TiUP 部署 TiCDC](/production-deployment-using-tiup.md#第-3-步编辑初始化配置文件)。
+### 使用 TiUP 在原有 TiDB 集群上新增 TiCDC 组件
 
-#### 使用 TiUP 在原有 TiDB 集群上新增 TiCDC 组件
+目前也支持在原有 TiDB 集群上新增 TiCDC 组件，使用 TiUP 的操作步骤
 
 1. 首先确认当前 TiDB 的版本支持 TiCDC，否则需要先升级 TiDB 集群至 4.0.0 rc.1 或更新版本。
 
 2. 参考 [扩容 TiDB/TiKV/PD/TiCDC 节点](/scale-tidb-using-tiup.md#扩容-ticdc-节点) 章节对 TiCDC 进行部署。
 
-### 在原有 TiDB 集群上使用 binary 部署 TiCDC 组件
+### 使用 binary 在原有 TiDB 集群上新增 TiCDC 组件（不推荐）
 
 假设 PD 集群有一个可以提供服务的 PD 节点（client URL 为 `10.0.10.25:2379`）。若要部署三个 TiCDC 节点，可以按照以下命令启动集群。只需要指定相同的 PD 地址，新启动的节点就可以自动加入 TiCDC 集群。
 
